@@ -1,0 +1,53 @@
+<section class="auth">
+  <form class="auth__card" (ngSubmit)="cadastrar()" #f="ngForm">
+    <h1>Cadastrar estabelecimento</h1>
+
+    <label>
+      Nome completo
+      <input type="text" name="nome" [(ngModel)]="nome" required />
+    </label>
+
+    <label>
+      E-mail institucional
+      <input type="email" name="email" [(ngModel)]="email" required />
+    </label>
+
+    <label>
+      Senha
+      <input type="password" name="senha" [(ngModel)]="senha" required minlength="6" />
+    </label>
+
+    <label>
+      Estabelecimento
+      <input type="text" name="estabelecimento" [(ngModel)]="estabelecimento" required
+        placeholder="Ex.: Hospital Santa Vida — Salvador/BA" />
+    </label>
+
+    <label>
+      Função
+      <select name="tipo" [(ngModel)]="tipo">
+        @for (opcao of tiposDisponiveis; track opcao.valor) {
+          <option [value]="opcao.valor">{{ opcao.label }}</option>
+        }
+      </select>
+    </label>
+
+    <label class="auth__checkbox">
+      <input type="checkbox" name="aceitouLgpd" [(ngModel)]="aceitouLgpd" />
+      <span>
+        Li e concordo com o tratamento dos meus dados e dos dados operacionais
+        registrados nos alertas, conforme a Lei Geral de Proteção de Dados (LGPD).
+      </span>
+    </label>
+
+    @if (erro()) {
+      <p class="auth__erro" role="alert">{{ erro() }}</p>
+    }
+
+    <button type="submit" class="btn btn--primary" [disabled]="f.invalid">Criar conta</button>
+
+    <p class="auth__rodape">
+      Já tem acesso? <a routerLink="/login">Entrar</a>
+    </p>
+  </form>
+</section>

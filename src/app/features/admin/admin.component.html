@@ -1,0 +1,42 @@
+<section class="admin">
+  <header class="admin__cabecalho">
+    <div>
+      <span class="admin__tag">Painel do administrador</span>
+      <h1>Visão geral da plataforma VitalDesk</h1>
+      <p>Todos os estabelecimentos, usuários e alertas cadastrados no sistema.</p>
+    </div>
+  </header>
+
+  <div class="admin__metricas">
+    <div class="metrica">
+      <span class="metrica__valor">{{ estabelecimentos.length }}</span>
+      <span class="metrica__label">Estabelecimentos</span>
+    </div>
+    <div class="metrica">
+      <span class="metrica__valor">{{ usuarios.length }}</span>
+      <span class="metrica__label">Usuários cadastrados</span>
+    </div>
+    <div class="metrica metrica--vital">
+      <span class="metrica__valor">{{ alertaService.totalAtivos() }}</span>
+      <span class="metrica__label">Alertas ativos (todos)</span>
+    </div>
+  </div>
+
+  <div class="admin__estabelecimentos">
+    <h2>Estabelecimentos</h2>
+    @for (estabelecimento of estabelecimentos; track estabelecimento) {
+      <article class="estabelecimento">
+        <h3>{{ estabelecimento }}</h3>
+        <ul>
+          @for (usuario of usuariosPorEstabelecimento(estabelecimento); track usuario.id) {
+            <li>
+              <span class="estabelecimento__nome">{{ usuario.nome }}</span>
+              <span class="estabelecimento__tipo">{{ usuario.tipo }}</span>
+              <span class="estabelecimento__email">{{ usuario.email }}</span>
+            </li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>

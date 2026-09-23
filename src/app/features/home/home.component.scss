@@ -1,0 +1,138 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--vd-space-5);
+  padding: var(--vd-space-5);
+  align-items: center;
+
+  &__tag {
+    font-family: var(--vd-font-data);
+    font-size: 0.75rem;
+    color: var(--vd-accent);
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.2;
+    color: var(--vd-text);
+    margin: var(--vd-space-2) 0 var(--vd-space-3);
+    max-width: 20ch;
+  }
+
+  p {
+    color: var(--vd-text-muted);
+    max-width: 52ch;
+    line-height: 1.6;
+  }
+
+  &__acoes {
+    display: flex;
+    gap: var(--vd-space-3);
+    margin-top: var(--vd-space-4);
+  }
+}
+
+.pilares {
+  padding: 0 var(--vd-space-5) var(--vd-space-5);
+
+  h2 {
+    color: var(--vd-text);
+    font-size: 1.3rem;
+    margin-bottom: var(--vd-space-4);
+  }
+
+  &__grade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--vd-space-3);
+  }
+}
+
+.pilar {
+  padding: var(--vd-space-4);
+  border: 1px solid var(--vd-border);
+  border-radius: var(--vd-radius);
+
+  &__indice {
+    font-family: var(--vd-font-data);
+    color: var(--vd-accent);
+  }
+
+  h3 {
+    color: var(--vd-text);
+    margin: var(--vd-space-2) 0;
+    font-size: 1rem;
+  }
+
+  p {
+    color: var(--vd-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.niveis {
+  padding: 0 var(--vd-space-5) var(--vd-space-5);
+
+  h2 {
+    color: var(--vd-text);
+    font-size: 1.3rem;
+    margin-bottom: var(--vd-space-4);
+  }
+
+  &__grade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--vd-space-3);
+  }
+}
+
+.nivel {
+  padding: var(--vd-space-4);
+  border-radius: var(--vd-radius);
+  border-left: 4px solid;
+
+  strong {
+    display: block;
+    color: var(--vd-text);
+    margin-bottom: var(--vd-space-1);
+  }
+
+  span {
+    font-family: var(--vd-font-data);
+    font-size: 0.8rem;
+  }
+
+  p {
+    color: var(--vd-text-muted);
+    font-size: 0.85rem;
+    margin-top: var(--vd-space-2);
+  }
+
+  &--vital {
+    background: var(--vd-risco-vital-bg);
+    border-color: var(--vd-risco-vital);
+    span { color: var(--vd-risco-vital); }
+  }
+  &--paralisacao {
+    background: var(--vd-risco-paralisacao-bg);
+    border-color: var(--vd-risco-paralisacao);
+    span { color: var(--vd-risco-paralisacao); }
+  }
+  &--suporte {
+    background: var(--vd-risco-suporte-bg);
+    border-color: var(--vd-risco-suporte);
+    span { color: var(--vd-risco-suporte); }
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .pilares__grade,
+  .niveis__grade {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,42 @@
+// ============================================================
+// VitalDesk — Design Tokens
+// Conceito: "painel de comando clínico" — não é um dashboard SaaS
+// genérico. As cores de risco SÃO a informação (não decoração),
+// por isso são as mais saturadas da paleta.
+// ============================================================
+
+:root {
+  // Base — navy clínico profundo (evita o "quase-preto" genérico)
+  --vd-bg: #0F1B2B;
+  --vd-surface: #16263B;
+  --vd-surface-alt: #1D3350;
+  --vd-border: #2A3F5A;
+
+  // Texto
+  --vd-text: #E8EDF4;
+  --vd-text-muted: #92A6BE;
+
+  // Acento de identidade (prontidão / disponibilidade)
+  --vd-accent: #2FD8C9;
+  --vd-accent-contrast: #06251F;
+
+  // Cores de risco — usadas em SLA, badges e faixas da matriz
+  --vd-risco-vital: #E5484D;
+  --vd-risco-vital-bg: rgba(229, 72, 77, 0.12);
+  --vd-risco-paralisacao: #F2A93B;
+  --vd-risco-paralisacao-bg: rgba(242, 169, 59, 0.12);
+  --vd-risco-suporte: #4C8BF5;
+  --vd-risco-suporte-bg: rgba(76, 139, 245, 0.12);
+
+  // Tipografia
+  --vd-font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --vd-font-data: 'IBM Plex Mono', 'Courier New', monospace;
+
+  // Espaçamento
+  --vd-radius: 6px;
+  --vd-space-1: 4px;
+  --vd-space-2: 8px;
+  --vd-space-3: 16px;
+  --vd-space-4: 24px;
+  --vd-space-5: 40px;
+}

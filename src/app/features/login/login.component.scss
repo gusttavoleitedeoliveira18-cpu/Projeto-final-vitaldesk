@@ -1,0 +1,67 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  padding: var(--vd-space-5);
+
+  &__card {
+    width: 100%;
+    max-width: 380px;
+    padding: var(--vd-space-4);
+    background: var(--vd-surface);
+    border: 1px solid var(--vd-border);
+    border-radius: var(--vd-radius);
+    display: flex;
+    flex-direction: column;
+    gap: var(--vd-space-3);
+  }
+
+  h1 {
+    color: var(--vd-text);
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  &__ajuda {
+    margin: 0;
+    color: var(--vd-text-muted);
+    font-size: 0.78rem;
+    font-family: var(--vd-font-data);
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--vd-space-1);
+    color: var(--vd-text-muted);
+    font-size: 0.85rem;
+  }
+
+  input {
+    padding: var(--vd-space-2);
+    background: var(--vd-bg);
+    border: 1px solid var(--vd-border);
+    border-radius: var(--vd-radius);
+    color: var(--vd-text);
+
+    &:focus {
+      outline: 2px solid var(--vd-accent);
+      outline-offset: 1px;
+    }
+  }
+
+  &__erro {
+    margin: 0;
+    color: var(--vd-risco-vital);
+    font-size: 0.85rem;
+  }
+
+  &__rodape {
+    margin: 0;
+    color: var(--vd-text-muted);
+    font-size: 0.85rem;
+
+    a {
+      color: var(--vd-accent);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="carousel" role="region" aria-roledescription="carrossel" aria-label="Destaques do VitalDesk">
+  <button type="button" class="carousel__seta carousel__seta--esq" (click)="anterior()" aria-label="Destaque anterior">‹</button>
+
+  <div class="carousel__slide" [attr.data-categoria]="itemAtual().categoria">
+    <span class="carousel__categoria">{{ itemAtual().categoria }}</span>
+    <h3 class="carousel__titulo">{{ itemAtual().titulo }}</h3>
+    <p class="carousel__subtitulo">{{ itemAtual().subtitulo }}</p>
+  </div>
+
+  <button type="button" class="carousel__seta carousel__seta--dir" (click)="proximo()" aria-label="Próximo destaque">›</button>
+
+  <div class="carousel__controles">
+    <button type="button" class="carousel__pausa" (click)="alternarPausa()">
+      {{ pausado() ? 'Retomar' : 'Pausar' }}
+    </button>
+    <div class="carousel__pontos">
+      @for (item of itens; track item.id; let i = $index) {
+        <button
+          type="button"
+          class="carousel__ponto"
+          [class.carousel__ponto--ativo]="i === indiceAtual()"
+          (click)="irPara(i)"
+          [attr.aria-label]="'Ir para destaque ' + (i + 1)">
+        </button>
+      }
+    </div>
+  </div>
+</div>

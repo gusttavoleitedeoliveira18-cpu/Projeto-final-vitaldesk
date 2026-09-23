@@ -1,0 +1,10 @@
+/node_modules 
+/dist 
+/out-tsc 
+/.angular/cache 
+.vscode/* 
+.idea/ 
+*.iml 
+.DS_Store 
+Thumbs.db 
+.env

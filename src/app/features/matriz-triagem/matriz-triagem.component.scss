@@ -1,0 +1,70 @@
+.matriz {
+  padding: var(--vd-space-5);
+
+  header {
+    margin-bottom: var(--vd-space-4);
+
+    h1 {
+      color: var(--vd-text);
+      font-size: 1.3rem;
+      margin: 0 0 var(--vd-space-1);
+    }
+
+    p {
+      color: var(--vd-text-muted);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+
+  &__tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+
+    th {
+      text-align: left;
+      color: var(--vd-text-muted);
+      font-weight: 400;
+      font-size: 0.78rem;
+      padding: var(--vd-space-2) var(--vd-space-2);
+      border-bottom: 1px solid var(--vd-border);
+    }
+
+    td {
+      color: var(--vd-text);
+      padding: var(--vd-space-3) var(--vd-space-2);
+      border-bottom: 1px solid var(--vd-border);
+    }
+
+    tr[data-risco='VITAL'] { background: var(--vd-risco-vital-bg); }
+    tr[data-risco='PARALISACAO'] { background: var(--vd-risco-paralisacao-bg); }
+  }
+
+  &__badge {
+    font-family: var(--vd-font-data);
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+
+    &[data-risco='VITAL'] { color: var(--vd-risco-vital); border: 1px solid var(--vd-risco-vital); }
+    &[data-risco='PARALISACAO'] { color: var(--vd-risco-paralisacao); border: 1px solid var(--vd-risco-paralisacao); }
+    &[data-risco='SUPORTE'] { color: var(--vd-risco-suporte); border: 1px solid var(--vd-risco-suporte); }
+  }
+
+  &__sla {
+    font-family: var(--vd-font-data);
+
+    &--negativo {
+      color: var(--vd-risco-vital);
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .matriz__tabela {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

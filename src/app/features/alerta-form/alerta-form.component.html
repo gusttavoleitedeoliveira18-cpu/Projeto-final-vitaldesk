@@ -1,0 +1,65 @@
+<section class="form-alerta">
+  <header>
+    <h1>Protocolo Rápido de Alerta</h1>
+    <p>Preenchimento ágil para a equipe assistencial reportar falhas técnicas.</p>
+  </header>
+
+  @if (enviado()) {
+    <div class="form-alerta__sucesso" role="status">
+      Alerta registrado com sucesso. Redirecionando para a Matriz de Triagem...
+    </div>
+  } @else {
+    <form (ngSubmit)="enviar()" #f="ngForm" class="form-alerta__grade">
+      <label>
+        Setor
+        <input type="text" name="setor" [(ngModel)]="setor" required placeholder="Ex.: UTI Adulto" />
+      </label>
+
+      <label>
+        Leito / Sala (opcional)
+        <input type="text" name="leito" [(ngModel)]="leito" placeholder="Ex.: Leito 04" />
+      </label>
+
+      <label>
+        Categoria do equipamento
+        <input type="text" name="categoria" [(ngModel)]="categoriaEquipamento" required
+          placeholder="Ex.: Respirador, Monitor, Tomógrafo" />
+      </label>
+
+      <fieldset class="form-alerta__risco">
+        <legend>Nível de risco ao paciente</legend>
+        @for (nivel of niveis; track nivel) {
+          <label class="form-alerta__opcao-risco" [attr.data-risco]="nivel">
+            <input type="radio" name="nivelRisco" [value]="nivel" [(ngModel)]="nivelRisco" />
+            <span>
+              <strong>{{ regras[nivel].label }}</strong>
+              <small>SLA {{ regras[nivel].slaMinutos }} min — {{ regras[nivel].descricao }}</small>
+            </span>
+          </label>
+        }
+      </fieldset>
+
+      <label class="form-alerta__full">
+        Descrição da falha
+        <textarea name="descricao" [(ngModel)]="descricao" required rows="3"
+          placeholder="Descreva o que está ocorrendo com o equipamento ou sistema."></textarea>
+      </label>
+
+      <label class="form-alerta__checkbox form-alerta__full">
+        <input type="checkbox" name="confirmaLgpd" [(ngModel)]="confirmaLgpd" />
+        <span>
+          Confirmo que os dados informados neste alerta seguem o protocolo de conformidade
+          com a LGPD, sem exposição indevida de dados de identificação do paciente.
+        </span>
+      </label>
+
+      @if (erro()) {
+        <p class="form-alerta__erro form-alerta__full" role="alert">{{ erro() }}</p>
+      }
+
+      <button type="submit" class="btn btn--primary form-alerta__full" [disabled]="f.invalid">
+        Registrar alerta
+      </button>
+    </form>
+  }
+</section>

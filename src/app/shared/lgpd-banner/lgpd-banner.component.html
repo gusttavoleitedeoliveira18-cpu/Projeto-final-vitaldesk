@@ -1,0 +1,17 @@
+@if (visivel()) {
+  <div class="lgpd-banner" role="dialog" aria-live="polite" aria-label="Consentimento de privacidade">
+    <p>
+      O VitalDesk utiliza dados operacionais e, quando informado, número de leito
+      para priorizar o atendimento de falhas técnicas. Nenhum dado é enviado a
+      terceiros. Ao continuar, você concorda com o uso desses dados conforme a LGPD.
+    </p>
+    <div class="lgpd-banner__acoes">
+      <button type="button" class="btn btn--ghost" (click)="recusarOpcionais()">
+        Apenas essenciais
+      </button>
+      <button type="button" class="btn btn--primary" (click)="aceitar()">
+        Aceitar
+      </button>
+    </div>
+  </div>
+}

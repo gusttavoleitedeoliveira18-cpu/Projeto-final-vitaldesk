@@ -1,0 +1,29 @@
+<section class="auth">
+  <form class="auth__card" (ngSubmit)="entrar()" #f="ngForm">
+    <h1>Entrar no VitalDesk</h1>
+    <p class="auth__ajuda">
+      Funcionário: ana.enfermagem&#64;vitaldesk.com · senha 123456<br />
+      Dono/administrador: dono&#64;vitaldesk.com · senha admin123
+    </p>
+
+    <label>
+      E-mail institucional
+      <input type="email" name="email" [(ngModel)]="email" required autocomplete="username" />
+    </label>
+
+    <label>
+      Senha
+      <input type="password" name="senha" [(ngModel)]="senha" required autocomplete="current-password" />
+    </label>
+
+    @if (erro()) {
+      <p class="auth__erro" role="alert">{{ erro() }}</p>
+    }
+
+    <button type="submit" class="btn btn--primary" [disabled]="f.invalid">Entrar</button>
+
+    <p class="auth__rodape">
+      Não tem acesso? <a routerLink="/cadastro">Cadastre seu estabelecimento</a>
+    </p>
+  </form>
+</section>

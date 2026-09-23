@@ -1,0 +1,51 @@
+<section class="matriz">
+  <header>
+    <h1>Matriz de Triagem e Resolução</h1>
+    <p>Fila de atendimento da Engenharia Clínica e TI, ordenada automaticamente por risco vital.</p>
+  </header>
+
+  <table class="matriz__tabela">
+    <thead>
+      <tr>
+        <th>Risco</th>
+        <th>Setor / Leito</th>
+        <th>Equipamento</th>
+        <th>SLA</th>
+        <th>Status</th>
+        <th>Responsável</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (alerta of alertaService.alertasOrdenadosPorRisco(); track alerta.id) {
+        <tr [attr.data-risco]="alerta.nivelRisco">
+          <td>
+            <span class="matriz__badge" [attr.data-risco]="alerta.nivelRisco">
+              {{ regras[alerta.nivelRisco].label }}
+            </span>
+          </td>
+          <td>{{ alerta.setor }}{{ alerta.leito ? ' · ' + alerta.leito : '' }}</td>
+          <td>{{ alerta.categoriaEquipamento }}</td>
+          <td class="matriz__sla" [class.matriz__sla--negativo]="minutosRestantes(alerta.id) < 0">
+            @if (alerta.status === 'RESOLVIDO') {
+              Concluído
+            } @else if (minutosRestantes(alerta.id) < 0) {
+              Vencido
+            } @else {
+              {{ minutosRestantes(alerta.id) }} min
+            }
+          </td>
+          <td>{{ alerta.status === 'ABERTO' ? 'Aberto' : alerta.status === 'EM_ATENDIMENTO' ? 'Em atendimento' : 'Resolvido' }}</td>
+          <td>{{ alerta.responsavel ?? '—' }}</td>
+          <td>
+            @if (alerta.status !== 'RESOLVIDO') {
+              <button type="button" class="btn btn--ghost" (click)="avancarStatus(alerta.id, alerta.status)">
+                {{ alerta.status === 'ABERTO' ? 'Assumir' : 'Concluir' }}
+              </button>
+            }
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>

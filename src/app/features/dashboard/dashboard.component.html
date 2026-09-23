@@ -1,0 +1,44 @@
+<section class="painel">
+  <header class="painel__cabecalho">
+    <div>
+      <h1>Painel de Prontidão Operacional</h1>
+      <p>Visão consolidada dos riscos técnicos ativos no estabelecimento.</p>
+    </div>
+    <a routerLink="/alertas/novo" class="btn btn--primary">Reportar falha</a>
+  </header>
+
+  <div class="painel__metricas">
+    <div class="metrica">
+      <span class="metrica__valor">{{ alertaService.totalAtivos() }}</span>
+      <span class="metrica__label">Alertas ativos</span>
+    </div>
+    <div class="metrica metrica--vital">
+      <span class="metrica__valor">{{ alertaService.totalPorRisco().VITAL }}</span>
+      <span class="metrica__label">{{ regras.VITAL.label }}</span>
+    </div>
+    <div class="metrica metrica--paralisacao">
+      <span class="metrica__valor">{{ alertaService.totalPorRisco().PARALISACAO }}</span>
+      <span class="metrica__label">{{ regras.PARALISACAO.label }}</span>
+    </div>
+    <div class="metrica metrica--suporte">
+      <span class="metrica__valor">{{ alertaService.totalPorRisco().SUPORTE }}</span>
+      <span class="metrica__label">{{ regras.SUPORTE.label }}</span>
+    </div>
+  </div>
+
+  <div class="painel__leitos">
+    <h2>Leitos e salas bloqueados por pendência técnica</h2>
+    <ul>
+      @for (alerta of alertaService.alertasOrdenadosPorRisco(); track alerta.id) {
+        @if (alerta.leito && alerta.status !== 'RESOLVIDO') {
+          <li [attr.data-risco]="alerta.nivelRisco">
+            <span class="painel__setor">{{ alerta.setor }} · {{ alerta.leito }}</span>
+            <span class="painel__sla" [class.painel__sla--negativo]="minutosRestantes(alerta.id) < 0">
+              {{ minutosRestantes(alerta.id) < 0 ? 'SLA vencido' : minutosRestantes(alerta.id) + ' min restantes' }}
+            </span>
+          </li>
+        }
+      }
+    </ul>
+  </div>
+</section>

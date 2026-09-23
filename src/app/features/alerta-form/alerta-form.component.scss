@@ -1,0 +1,115 @@
+.form-alerta {
+  padding: var(--vd-space-5);
+  max-width: 720px;
+
+  header {
+    margin-bottom: var(--vd-space-4);
+
+    h1 {
+      color: var(--vd-text);
+      font-size: 1.3rem;
+      margin: 0 0 var(--vd-space-1);
+    }
+
+    p {
+      color: var(--vd-text-muted);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+
+  &__grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--vd-space-3);
+  }
+
+  &__full {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--vd-space-1);
+    color: var(--vd-text-muted);
+    font-size: 0.85rem;
+  }
+
+  input[type='text'],
+  textarea {
+    padding: var(--vd-space-2);
+    background: var(--vd-surface);
+    border: 1px solid var(--vd-border);
+    border-radius: var(--vd-radius);
+    color: var(--vd-text);
+    font-family: inherit;
+    resize: vertical;
+
+    &:focus {
+      outline: 2px solid var(--vd-accent);
+      outline-offset: 1px;
+    }
+  }
+
+  &__risco {
+    grid-column: 1 / -1;
+    border: 1px solid var(--vd-border);
+    border-radius: var(--vd-radius);
+    padding: var(--vd-space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--vd-space-2);
+
+    legend {
+      color: var(--vd-text);
+      font-size: 0.85rem;
+      padding: 0 var(--vd-space-1);
+    }
+  }
+
+  &__opcao-risco {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--vd-space-2);
+    padding: var(--vd-space-2);
+    border-radius: var(--vd-radius);
+    border-left: 3px solid transparent;
+
+    input { margin-top: 3px; }
+
+    strong { color: var(--vd-text); display: block; font-size: 0.9rem; }
+    small { color: var(--vd-text-muted); font-size: 0.78rem; }
+
+    &[data-risco='VITAL'] { border-left-color: var(--vd-risco-vital); }
+    &[data-risco='PARALISACAO'] { border-left-color: var(--vd-risco-paralisacao); }
+    &[data-risco='SUPORTE'] { border-left-color: var(--vd-risco-suporte); }
+  }
+
+  &__checkbox {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--vd-space-2);
+    font-size: 0.8rem;
+    input { margin-top: 3px; }
+  }
+
+  &__erro {
+    color: var(--vd-risco-vital);
+    font-size: 0.85rem;
+  }
+
+  &__sucesso {
+    padding: var(--vd-space-4);
+    background: var(--vd-risco-suporte-bg);
+    border: 1px solid var(--vd-risco-suporte);
+    border-radius: var(--vd-radius);
+    color: var(--vd-text);
+  }
+}
+
+@media (max-width: 640px) {
+  .form-alerta__grade {
+    grid-template-columns: 1fr;
+  }
+}

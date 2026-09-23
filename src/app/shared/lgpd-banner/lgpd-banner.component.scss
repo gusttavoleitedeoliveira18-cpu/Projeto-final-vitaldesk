@@ -1,0 +1,27 @@
+.lgpd-banner {
+  position: fixed;
+  left: var(--vd-space-4);
+  right: var(--vd-space-4);
+  bottom: var(--vd-space-4);
+  z-index: 100;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--vd-space-4);
+  background: var(--vd-surface-alt);
+  border: 1px solid var(--vd-border);
+  border-radius: var(--vd-radius);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+
+  p {
+    margin: 0 0 var(--vd-space-3);
+    color: var(--vd-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  &__acoes {
+    display: flex;
+    gap: var(--vd-space-2);
+    justify-content: flex-end;
+  }
+}

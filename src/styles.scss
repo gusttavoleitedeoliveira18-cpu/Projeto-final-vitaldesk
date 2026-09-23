@@ -1,0 +1,41 @@
+@import './styles/tokens';
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--vd-bg);
+  color: var(--vd-text);
+  font-family: var(--vd-font-ui);
+}
+
+h1, h2, h3 { font-weight: 600; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: var(--vd-radius);
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit;
+
+  &--primary {
+    background: var(--vd-accent);
+    color: var(--vd-accent-contrast);
+
+    &:hover { opacity: 0.9; }
+    &:disabled { opacity: 0.5; cursor: not-allowed; }
+  }
+
+  &--ghost {
+    background: transparent;
+    border-color: var(--vd-border);
+    color: var(--vd-text);
+
+    &:hover { border-color: var(--vd-accent); }
+  }
+}

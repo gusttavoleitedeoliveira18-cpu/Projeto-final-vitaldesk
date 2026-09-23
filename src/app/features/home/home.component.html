@@ -1,0 +1,52 @@
+<section class="hero">
+  <div class="hero__texto">
+    <span class="hero__tag">Salvador · BA</span>
+    <h1>Falha em equipamento vital não pode esperar na fila do chamado comum.</h1>
+    <p>
+      O VitalDesk centraliza o reporte de falhas técnicas em ambientes hospitalares
+      e prioriza o atendimento pelo risco clínico ao paciente — não pela ordem de chegada.
+    </p>
+    <div class="hero__acoes">
+      <a routerLink="/cadastro" class="btn btn--primary">Cadastrar estabelecimento</a>
+      <a routerLink="/login" class="btn btn--ghost">Já tenho acesso</a>
+    </div>
+  </div>
+
+  <div class="hero__carrossel">
+    <vd-carousel [itens]="destaques" [autoplayMs]="5000" />
+  </div>
+</section>
+
+<section class="pilares">
+  <h2>Como o VitalDesk organiza a triagem</h2>
+  <div class="pilares__grade">
+    @for (pilar of pilares; track pilar.titulo; let i = $index) {
+      <article class="pilar">
+        <span class="pilar__indice">{{ i + 1 }}</span>
+        <h3>{{ pilar.titulo }}</h3>
+        <p>{{ pilar.texto }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="niveis">
+  <h2>Classificação por nível de risco ao paciente</h2>
+  <div class="niveis__grade">
+    <div class="nivel nivel--vital">
+      <strong>Risco Vital</strong>
+      <span>SLA 15–30 min</span>
+      <p>Respiradores, monitores de UTI, rede de oxigênio.</p>
+    </div>
+    <div class="nivel nivel--paralisacao">
+      <strong>Risco de Paralisação</strong>
+      <span>SLA 1h–2h</span>
+      <p>Prontuário eletrônico do PS, Raio-X, Tomógrafo.</p>
+    </div>
+    <div class="nivel nivel--suporte">
+      <strong>Risco Suporte</strong>
+      <span>SLA 12h–24h</span>
+      <p>Infraestrutura geral sem impacto direto à saúde.</p>
+    </div>
+  </div>
+</section>

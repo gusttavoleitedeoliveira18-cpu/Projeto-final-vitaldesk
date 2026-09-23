@@ -1,0 +1,31 @@
+<header class="topbar">
+  <a routerLink="/home" class="topbar__marca">VitalDesk</a>
+
+  <nav class="topbar__nav">
+    <a routerLink="/home" routerLinkActive="ativo">Início</a>
+    @if (auth.estaAutenticado() && auth.ehAdmin()) {
+      <a routerLink="/admin" routerLinkActive="ativo">Painel do Dono</a>
+    }
+    @if (auth.estaAutenticado() && !auth.ehAdmin()) {
+      <a routerLink="/dashboard" routerLinkActive="ativo">Painel</a>
+      <a routerLink="/matriz" routerLinkActive="ativo">Matriz de Triagem</a>
+      <a routerLink="/alertas/novo" routerLinkActive="ativo">Novo Alerta</a>
+    }
+  </nav>
+
+  <div class="topbar__conta">
+    @if (auth.estaAutenticado()) {
+      <span class="topbar__usuario">{{ auth.usuarioAtual()?.nome }}</span>
+      <button type="button" class="btn btn--ghost" (click)="auth.logout()">Sair</button>
+    } @else {
+      <a routerLink="/login" class="btn btn--ghost">Entrar</a>
+      <a routerLink="/cadastro" class="btn btn--primary">Cadastrar</a>
+    }
+  </div>
+</header>
+
+<main>
+  <router-outlet />
+</main>
+
+<vd-lgpd-banner />
