@@ -3,7 +3,7 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 /**
- * Protege a área do dono/administrador da plataforma.
+ * Protege a área do administrador da plataforma.
  * Exige login E que o usuário seja do tipo ADMIN — um funcionário
  * comum autenticado ainda assim é redirecionado para o dashboard normal.
  */

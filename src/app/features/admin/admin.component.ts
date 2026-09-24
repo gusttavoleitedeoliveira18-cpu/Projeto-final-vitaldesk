@@ -4,7 +4,7 @@ import { AlertaService } from '../../core/services/alerta.service';
 import { REGRAS_RISCO } from '../../core/models/alerta.model';
 
 /**
- * Painel do dono/administrador da plataforma VitalDesk.
+ * Painel do administrador da plataforma VitalDesk.
  * Visão consolidada de todos os estabelecimentos, usuários e alertas
  * cadastrados — diferente do dashboard operacional de cada hospital.
  */

@@ -22,7 +22,7 @@ export class AuthService {
 
   constructor(private router: Router) {}
 
-  /** Usado apenas pelo painel administrativo (dono da plataforma). */
+  /** Usado apenas pelo painel administrativo (administrador da plataforma). */
   listarUsuarios(): Usuario[] {
     return [...this.usuarios];
   }

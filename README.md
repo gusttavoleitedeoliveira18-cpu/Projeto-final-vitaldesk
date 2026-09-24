@@ -26,7 +26,8 @@ npm install
 npm start
 ```
 
-Login de demonstração: `ana.enfermagem@vitaldesk.com` / senha `123456`.
+Login de demonstração (funcionário): `ana.enfermagem@vitaldesk.com` / senha `123456`.
+Login de demonstração (administrador): `admin@vitaldesk.com` / senha `admin123`.
 
 ## O que já está pronto
 

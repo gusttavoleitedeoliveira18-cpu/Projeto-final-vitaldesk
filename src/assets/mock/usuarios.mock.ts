@@ -22,11 +22,11 @@ export const USUARIOS_MOCK: Usuario[] = [
     aceitouLgpd: true
   },
   {
-    // Login do dono/administrador da plataforma VitalDesk.
-    // login: dono@vitaldesk.com | senha: admin123
+    // Login do administrador da plataforma VitalDesk.
+    // login: admin@vitaldesk.com | senha: admin123
     id: 'u3',
     nome: 'Gustavo (Administrador)',
-    email: 'dono@vitaldesk.com',
+    email: 'admin@vitaldesk.com',
     senha: 'admin123',
     tipo: 'ADMIN',
     estabelecimento: 'VitalDesk — Plataforma',

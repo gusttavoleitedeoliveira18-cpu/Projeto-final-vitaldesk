@@ -4,7 +4,7 @@
   <nav class="topbar__nav">
     <a routerLink="/home" routerLinkActive="ativo">Início</a>
     @if (auth.estaAutenticado() && auth.ehAdmin()) {
-      <a routerLink="/admin" routerLinkActive="ativo">Painel do Dono</a>
+      <a routerLink="/admin" routerLinkActive="ativo">Painel do Administrador</a>
     }
     @if (auth.estaAutenticado() && !auth.ehAdmin()) {
       <a routerLink="/dashboard" routerLinkActive="ativo">Painel</a>
